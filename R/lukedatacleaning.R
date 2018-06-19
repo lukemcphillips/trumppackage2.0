@@ -10,7 +10,7 @@ library(RCurl)
 #'
 #' @return Tidy data of tweets broken down by word and tweet index
 #' @export
-clean_data <- function(startDate, endDate) {
+clean_data <- function() {
   # configuration
   consumer_key <- "ul0zL1WmoQ9tKWgv0f5AZhiDn"
   consumer_secret <- "TJ3i0v6wNFx91nqfNNbVFSYyDC9vXp1QuOYo0gZ8HdiSTnDmcF"
