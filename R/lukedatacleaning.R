@@ -10,7 +10,7 @@ library(RCurl)
 #'
 #' @return Tidy data of tweets broken down by word and tweet index
 #' @export
-clean_data <- function() {
+clean_data <- function(startDate, endDate) {
   # configuration
   consumer_key <- "ul0zL1WmoQ9tKWgv0f5AZhiDn"
   consumer_secret <- "TJ3i0v6wNFx91nqfNNbVFSYyDC9vXp1QuOYo0gZ8HdiSTnDmcF"
@@ -21,7 +21,7 @@ clean_data <- function() {
   # getting tweets using twitteR API
   setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
-  tw = twitteR::searchTwitter('@realDonaldTrump', n = 100, lang = 'en', since = '2017-01-08', retryOnRateLimit = 1e3)
+  tw = twitteR::searchTwitter('@realDonaldTrump', n = 100, lang = 'en', since = startDate, until = endDate, retryOnRateLimit = 1e3)
   d = twitteR::twListToDF(tw)
 
   tweet_stats = data.frame(tweet = d$text, favoriteCount = d$favoriteCount, retweetCount = d$retweetCount)
