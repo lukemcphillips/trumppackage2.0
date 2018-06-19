@@ -10,7 +10,7 @@ library(RCurl)
 #'
 #' @return Tidy data of tweets broken down by word and tweet index
 #' @export
-clean_data <- function(startDate, endDate) {
+clean_data <- function(startDate) {
   # configuration
   consumer_key <- "ul0zL1WmoQ9tKWgv0f5AZhiDn"
   consumer_secret <- "TJ3i0v6wNFx91nqfNNbVFSYyDC9vXp1QuOYo0gZ8HdiSTnDmcF"
@@ -19,9 +19,9 @@ clean_data <- function(startDate, endDate) {
 
 
   # getting tweets using twitteR API
-  setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
+  twitteR::setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
-  tw = twitteR::searchTwitter('@realDonaldTrump', n = 100, lang = 'en', since = startDate, until = endDate, retryOnRateLimit = 1e3)
+  tw = twitteR::searchTwitter('@realDonaldTrump', n = 100, lang = 'en', since = startDate, until = startDate + 7, retryOnRateLimit = 1e3)
   d = twitteR::twListToDF(tw)
 
   tweet_stats = data.frame(tweet = d$text, favoriteCount = d$favoriteCount, retweetCount = d$retweetCount)
@@ -32,6 +32,7 @@ clean_data <- function(startDate, endDate) {
   tweet_created$text <- gsub("(R)T ", "", tweet_created$text)
   tweet_created$text <- gsub("https", "", tweet_created$text)
   tweet_created$text <- gsub("t.co", "", tweet_created$text)
+  tweet_created$text <- gsub("[0-9]+", "", tweet_created$text)
 
   # cleaning the text from tweets
   word_bag <- tweet_created %>% mutate(line = 1:nrow(.))
