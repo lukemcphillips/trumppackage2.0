@@ -21,7 +21,7 @@ clean_data <- function(startDate, endDate) {
   # getting tweets using twitteR API
   twitteR::setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
-  tw = twitteR::searchTwitter('@realDonaldTrump', n = 100, lang = 'en', since = startDate, until = endDate, retryOnRateLimit = 1e3)
+  tw = twitteR::searchTwitter('@realDonaldTrump', n = 1000, lang = 'en', retryOnRateLimit = 1e3)
   d = twitteR::twListToDF(tw)
 
   tweet_stats = data.frame(tweet = d$text, favoriteCount = d$favoriteCount, retweetCount = d$retweetCount)
