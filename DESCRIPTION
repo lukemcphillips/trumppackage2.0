@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(person("Stacy", "Kam", email = "stacy_kam@mail.usf.edu", role = c("aut", "cre")), person("Luke", "McPhillips", email = "lrmcphillips@gmail.com", role = c("ctb")))
 Description: Provides the base functions for cleaning twitter data relating to Donald Trump and assigning sentiment scores based on individual analysis
 License: MIT
-Imports: twitteR, tidytext, dplyr, tidyr, stringr, RCurl, wordcloud2, SnowballC, viridis
+Imports: twitteR, tidytext, dplyr, tidyr, stringr, RCurl, wordcloud2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

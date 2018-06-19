@@ -1,9 +1,4 @@
-library(tm)
-library(SnowballC)
-library(wordcloud)
-library(RColorBrewer)
 library(wordcloud2)
-library(viridis)
 library(dplyr)
 
 #' Get wordcoud
@@ -15,8 +10,6 @@ library(dplyr)
 #' @export
 #'
 #' @examples
-
-
 get_cloud <- function(num_words, final_scoring){
   # count frequency of word
   word_freq <- final_scoring %>%
