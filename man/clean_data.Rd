@@ -4,7 +4,7 @@
 \alias{clean_data}
 \title{Import and clean data from twitter relating to Donald Trump}
 \usage{
-clean_data()
+clean_data(startDate, endDate)
 }
 \value{
 Tidy data of tweets broken down by word and tweet index
