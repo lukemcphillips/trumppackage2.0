@@ -34,7 +34,7 @@ get_cloud <- function(num_words, final_scoring){
   # create word cloud
   testing <- final_scoring %>% select(word, freq, color)
 
-  testing <- testing %>% arrange(desc(freq)) %>% slice(0:input_max)
+  testing <- testing %>% arrange(desc(freq)) %>% slice(0:num_words)
 
   (cloud <- wordcloud2(data = testing, color = testing$color, shape = 'circle'))
 }
