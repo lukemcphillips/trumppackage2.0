@@ -21,7 +21,7 @@ tweets <- function(inputdate) {
   # getting tweets using twitteR API
   twitteR::setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
-  tw = twitteR::searchTwitter('Trump', n = 1000, since = inputdate, until = inputdate, lang = 'en', retryOnRateLimit = 1e3)
+  tw = twitteR::searchTwitter('Trump', n = 1000, since = as.character(inputdate - 1), until = as.character(inputdate), lang = 'en', retryOnRateLimit = 1e3)
   d = twitteR::twListToDF(tw)
   d
 }
