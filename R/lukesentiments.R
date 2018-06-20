@@ -14,7 +14,7 @@ sentiments_score <- function(word_bag) {
 
   avg_scored_tweets <- scored_words %>%
     group_by(line) %>%
-    summarize(avg_score = mean(score))
+    dplyr::summarize(avg_score = mean(score))
 
 
   final_scoring <- left_join(word_bag, avg_scored_tweets, by = "line", all.X = TRUE)

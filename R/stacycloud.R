@@ -14,12 +14,12 @@ get_cloud <- function(num_words, final_scoring){
   # count frequency of word
   word_freq <- final_scoring %>%
     group_by(word) %>%
-    summarise(freq = as.numeric(table(word)))
+    dplyr::summarise(freq = as.numeric(table(word)))
 
   # group by word to get avg sentiment
   final_scoring <- final_scoring %>%
     group_by(word) %>%
-    summarize(avg_sentiment = mean(avg_score))
+    dplyr::summarize(avg_sentiment = mean(avg_score))
 
   # merge freq with final_scoring
   final_scoring <- merge(x = final_scoring, y = word_freq, by = "word", all.x = TRUE)
@@ -36,5 +36,4 @@ get_cloud <- function(num_words, final_scoring){
 
   testing <- testing %>% arrange(desc(freq)) %>% slice(0:num_words)
 
-  (cloud <- wordcloud2(data = testing, color = testing$color, shape = 'circle'))
-}
+  (cloud <- wordcloud2(data = testing, color = testing$color, shape = 'circle', backgroundColor = '#2c3e4f'))}
