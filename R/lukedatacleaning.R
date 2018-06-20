@@ -11,8 +11,6 @@ library(RCurl)
 #' @export
 clean_data <- function() {
   # configuration
-  d <- tweets()
-
   tweet_created = d %>% select(text, created)
 
 
