@@ -12,7 +12,7 @@ library(RCurl)
 #' @export
 clean_data <- function() {
   # configuration
-  d <- tweet_retrieval()
+  d <- tweets()
 
   tweet_created$text <- gsub("@\\w+ *", "", tweet_created$text)
   tweet_created$text <- gsub("(R)T ", "", tweet_created$text)
