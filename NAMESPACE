@@ -2,4 +2,6 @@
 
 export(clean_data)
 export(get_cloud)
+export(lat_lon)
 export(sentiments_score)
+export(tweets)
