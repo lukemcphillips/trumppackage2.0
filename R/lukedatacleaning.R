@@ -4,7 +4,6 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 library(RCurl)
-library(scRabble)
 
 #' Import and clean data from twitter relating to Donald Trump
 #'
