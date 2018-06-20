@@ -12,8 +12,10 @@ library(RCurl)
 #' @export
 lat_lon <- function() {
 
-  d <- tweet_retrieval()
+  d <- tweets()
 
-  tweet_loc = data.frame(tweet = d$text, lon = d$longitude, lat = d$latitude)
+  tweet_loc = data.frame(lon = d$longitude, lat = d$latitude)
+
+  tweet_loc
 
 }

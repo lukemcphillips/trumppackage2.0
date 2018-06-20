@@ -1,6 +1,5 @@
 
 library(dplyr)
-library(plyr)
 library(tidyr)
 
 #' Assign average sentiment scores to each word in a tweet based on the average score for the tweet as a whole
