@@ -14,7 +14,7 @@ lat_lon <- function() {
 
   d <- tweets()
 
-  tweet_loc = data.frame(lon = tweet_created$longitude, lat = tweet_created$latitude)
+  tweet_loc = data.frame(lon = d$longitude, lat = d$latitude)
 
   tweet_loc
 

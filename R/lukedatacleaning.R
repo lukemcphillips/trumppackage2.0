@@ -9,9 +9,9 @@ library(RCurl)
 #'
 #' @return Tidy data of tweets broken down by word and tweet index
 #' @export
-clean_data <- function() {
+clean_data <- function(d) {
   # configuration
-  d <- tweets()
+
 
   tweet_created = d %>% select(text, created)
 

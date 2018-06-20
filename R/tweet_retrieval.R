@@ -10,7 +10,7 @@ library(RCurl)
 #'
 #' @return Data frame of relevant information regarding tweets about Donald Trump
 #' @export
-tweets <- function() {
+tweets <- function(inputdate) {
   # configuration
   consumer_key <- "ul0zL1WmoQ9tKWgv0f5AZhiDn"
   consumer_secret <- "TJ3i0v6wNFx91nqfNNbVFSYyDC9vXp1QuOYo0gZ8HdiSTnDmcF"
@@ -21,7 +21,7 @@ tweets <- function() {
   # getting tweets using twitteR API
   twitteR::setup_twitter_oauth(consumer_key, consumer_secret, access_token, access_secret)
 
-  tw = twitteR::searchTwitter('Trump', n = 750, lang = 'en', retryOnRateLimit = 1e3)
+  tw = twitteR::searchTwitter('Trump', n = 1000, since = inputdate, until = inputdate, lang = 'en', retryOnRateLimit = 1e3)
   d = twitteR::twListToDF(tw)
   d
 }
