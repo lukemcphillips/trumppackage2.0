@@ -15,6 +15,7 @@ clean_data <- function() {
 
   tweet_created = d %>% select(text, created)
 
+
   tweet_created$text <- gsub("@\\w+ *", "", tweet_created$text)
   tweet_created$text <- gsub("(R)T ", "", tweet_created$text)
   tweet_created$text <- gsub("https", "", tweet_created$text)
